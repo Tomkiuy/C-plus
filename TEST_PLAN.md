@@ -1,6 +1,6 @@
 # 測試計畫
 
-> 狀態：**規劃中**（測試尚未實作）　｜　適用分支：`fix-binarysearch-readme`
+> 狀態：**已實作**（`tests/test_algorithms.cpp`、`tests/test_output.sh`）　｜　適用分支：`fix-binarysearch-readme`
 
 ## 1. 目標
 
@@ -22,9 +22,9 @@
 
 ## 3. 前置工作
 
-1. 將 `BiSearch`、`Bubble`、`Exchange`、`RandI` 從 `BinarySearch.cpp` 移到 `BinarySearch.h`
-2. `BinarySearch.cpp` 改為 `#include "BinarySearch.h"`，行為不變
-3. 新增 `tests/test_algorithms.cpp`，使用標準 `assert`，不引入外部框架
+1. ✅ 將 `BiSearch`、`Bubble`、`Exchange`、`RandI` 從 `BinarySearch.cpp` 移到 `BinarySearch.h`
+2. ✅ `BinarySearch.cpp` 改為 `#include "BinarySearch.h"`，行為不變
+3. ✅ 新增 `tests/test_algorithms.cpp`，使用標準 `assert`，不引入外部框架
 
 ## 4. 測試案例
 
@@ -85,18 +85,17 @@
 g++ -Wall -Wextra -fsanitize=address,undefined -g -I. \
     -o test_algorithms tests/test_algorithms.cpp && ./test_algorithms
 
-# 示範程式輸出
-g++ -o Alias Alias.cpp && ./Alias
-g++ -o Array Array.cpp && ./Array
+# 示範程式輸出（OUT-01～04）
+./tests/test_output.sh
 ```
 
-全部通過時輸出 `All tests passed`，結束碼為 `0`；任一案例失敗時 `assert` 會中止程式並顯示失敗的位置。
+全部通過時分別輸出 `All tests passed` 與 `All output tests passed`，結束碼為 `0`。單元測試失敗時 `assert` 會中止並顯示失敗的行號；輸出測試失敗時會顯示 `FAIL` 與案例編號。
 
 ## 6. 完成標準
 
-- [ ] 第 4 節所有案例皆通過
-- [ ] 在 AddressSanitizer 與 UndefinedBehaviorSanitizer 下沒有錯誤
-- [ ] 以 `-Wall -Wextra` 編譯沒有警告
+- [x] 第 4 節所有案例皆通過
+- [x] 在 AddressSanitizer 與 UndefinedBehaviorSanitizer 下沒有錯誤
+- [x] 以 `-Wall -Wextra` 編譯沒有警告
 - [ ] （選用）GitHub Actions 在每次 push 時自動執行
 
 ## 7. 風險與注意事項

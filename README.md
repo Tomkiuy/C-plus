@@ -17,3 +17,12 @@ g++ -Wall -o BinarySearch BinarySearch.cpp && ./BinarySearch
 ```
 
 `BinarySearch` 結束前會等待按下 Enter。Windows 上可用 Visual Studio 或 MinGW 的 `g++` 編譯。
+
+## 測試
+
+```sh
+g++ -Wall -Wextra -fsanitize=address,undefined -g -I. -o test_algorithms tests/test_algorithms.cpp && ./test_algorithms
+./tests/test_output.sh
+```
+
+測試案例清單見 [`TEST_PLAN.md`](TEST_PLAN.md)。
