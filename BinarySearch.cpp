@@ -4,7 +4,6 @@
 #include <ctime>
 #include <cstdlib>
 #include <stdio.h>
-#include <tchar.h>
 #include <iostream>
 #include <iomanip>
 
@@ -38,7 +37,7 @@ void Exchange(T& A, T& B){
 template <class T>
 void Bubble(T *V, int N){
 	for(int i = 0; i < N; i++)
-		for(int j = N; j > i; j--) 
+		for(int j = N - 1; j > i; j--) 
 			if(V[j] < V[j-1])
 				Exchange(V[j], V[j-1]);
 	return;
@@ -72,7 +71,7 @@ int main()
 	else
 		cout << "找不到 " << Key << endl; 
 	
-	system("pause");
+	cin.get();
     return 0;
 }
 
